@@ -31,13 +31,13 @@ if Ingredient_list :
     #st.text(Ingredient_list)
     ingredient_string=""
     for fruit_chosen in Ingredient_list:
-        ingredient_string+=fruit_chosen+' '
+      ingredient_string+=fruit_chosen+' '
     #st.write(ingredient_string)
-    my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
+      my_insert_stmt = """ insert into smoothies.public.orders(ingredients,name_on_order)
                     values ('""" + ingredient_string + """','""" + name_on_order + """')"""
     
     #st.write(my_insert_stmt)
-    time_to_insert= st.button('submit order')
-    if time_to_insert:
-        session.sql(my_insert_stmt).collect()
-        st.success('Your Smoothie is ordered!', icon="✅")
+      time_to_insert= st.button('submit order')
+        if time_to_insert:
+          session.sql(my_insert_stmt).collect()
+          st.success('Your Smoothie is ordered!', icon="✅")
