@@ -17,7 +17,7 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 # Get the data from Snowflake
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('search_on'))
 
 # --- 4. Ingredient Selection ---
 ingredient_list = st.multiselect(
