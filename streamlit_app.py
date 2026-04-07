@@ -19,6 +19,7 @@ session = cnx.session()
 # Get the data from Snowflake
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('search_on'))
 
+pd_df=my_dataframe.to_pandas()
 # --- 4. Ingredient Selection ---
 ingredient_list = st.multiselect(
     "Choose up to 5 ingredients:",
@@ -34,6 +35,7 @@ if ingredient_list:
         ingredient_string += fruit_chosen + ' '
         search_on = pd_df.loc[pd_df['FRUIT_NAME'] == fruit_chosen, 'SEARCH_ON'].iloc[0]
         st.write('The search value for ', fruit_chosen, ' is ', search_on, '.')
+        
         st.subheader(fruit_chosen + ' Nutrition Information')
         # 4. Use the search_on variable for the API call
         smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/" + search_on)
