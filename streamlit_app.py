@@ -2,7 +2,7 @@
 import requests
 import streamlit as st
 import pandas as pd  # Added Pandas
-from snowflake.snowpark.functions import col
+#from snowflake.snowpark.functions import col
 #from snowflake.snowpark.context import get_active_session
 #from snowflake.snowpark.functions import col
 
